@@ -11,7 +11,7 @@ const NavBar = () => {
                 <li><NavLink className="navlink-style" to='/homes'>View Units</NavLink></li>
                 <li><NavLink className="navlink-style" to='/reservations'>Reservations</NavLink></li>
                 <li><NavLink className="navlink-style" to='/user'>My Profile</NavLink></li>
-                <li><NavLink className="navlink-style" to='/login' className="waves-effect waves-light btn">Login</NavLink></li>
+                <li><NavLink className="navlink-style" to='/login' className="waves-effect waves-light btn teal">Login/Register</NavLink></li>
                 </ul>
         </div>
         </nav>
