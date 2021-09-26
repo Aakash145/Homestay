@@ -5,8 +5,10 @@ import com.example.demo.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import javax.management.Query;
 import java.util.List;
 
+@CrossOrigin(origins = "*")
 @RestController
 @RequestMapping("/api")
 public class UserController {
@@ -28,9 +30,5 @@ public class UserController {
     public User postUser(@RequestBody User user){
         return userRepository.save(user);
     }
-
-
-
-
 
 }
