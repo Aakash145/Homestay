@@ -2,10 +2,12 @@ import React from 'react';
   
 const User = () => {
   return (
-    <div>
-      <h1>This is where you see your profile</h1>
-    </div>
-  );
+    <div className="caption">
+      <h2>My Profile</h2>
+      <div className="Houselist">   
+     </div>
+  </div>
+    );
 };
   
 export default User;
