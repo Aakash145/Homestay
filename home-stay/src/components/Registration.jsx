@@ -55,58 +55,126 @@ class Registration extends React.Component {
 
   render(){
   return (
-      <form className="col s12 card large" onSubmit={(e) => this.registerUser(e)}>
-          <h3 className="center">New user</h3>
-    <br/>
-    <br/>
 
-      <div className="row">
-        <div className="input-field col s6">
-          <input id="firstName" type="text" className="validate" onChange={(e) => this.handleChange(e)}/>
-          <label htmlFor="firstName">First Name</label>
-        </div>
-        <div className="input-field col s6">
-          <input id="lastName" type="text" className="validate" onChange={(e) => this.handleChange(e)}/>
-          <label htmlFor="lastName">Last Name</label>
-        </div>
-      </div>
+    <main>
+    <section className="midSection midBlock">
+      <form className="loginRegform" onSubmit={(e) => this.registerUser(e)}>
+        <div className="container">
+        <h2>New User</h2>
 
-      <div className="row">
-        <div className="input-field col s12">
-          <input id="password" type="password" className="validate" onChange={(e) => this.handleChange(e)}/>
-          <label htmlFor="password">Password</label>
+        {/* First Name */}
+        <div className="loginReg-control">
+        <label htmlFor="firstName">First Name</label>
+        <input id="firstName" type="text" className="loginReg-input" onChange={(e) => this.handleChange(e)}/>
         </div>
-      </div>
-      <div className="row">
-        <div className="input-field col s6">
-          <input id="email" type="email" className="validate" onChange={(e) => this.handleChange(e)}/>
-          <label htmlFor="email">Email</label>
+
+        {/* Last Name */}
+        <div className="loginReg-control">
+        <label htmlFor="lastName">Last Name</label>
+        <input id="lastName" type="text" className="loginReg-input"  onChange={(e) => this.handleChange(e)}/>
         </div>
-        <div className="input-field col s6">
-          <input id="phoneNumber" type="text" className="validate" onChange={(e) => this.handleChange(e)}/>
-          <label htmlFor="phoneNumber">Phone</label>
+
+        {/* Password */}
+        <div className="loginReg-control">
+        <label htmlFor="password">Password</label>
+        <input id="password" type="password" className="loginReg-input" onChange={(e) => this.handleChange(e)}/>
         </div>
-      </div>
-      <div className="row">
-        <div className="input-field col s6">
-          <input id="streetAddress" type="text" className="validate" onChange={(e) => this.handleChange(e)}/>
-          <label htmlFor="streetAddress">Street Address</label>
+
+        {/* Email */}
+        <div className="loginReg-control">
+        <label htmlFor="email">Email</label>
+        <input id="email" type="email" className="loginReg-input" onChange={(e) => this.handleChange(e)}/>
         </div>
-        <div className="input-field col s6">
-          <input id="city" type="text" className="validate" onChange={(e) => this.handleChange(e)}/>
-          <label htmlFor="city">City</label>
+
+        {/* Phone */}
+        <div className="loginReg-control">
+        <label htmlFor="phoneNumber">Phone</label>
+        <input id="phoneNumber" type="text" className="loginReg-input" onChange={(e) => this.handleChange(e)}/>
         </div>
-        <div className="input-field col s6">
-          <input id="country" type="text" className="validate" onChange={(e) => this.handleChange(e)}/>
-          <label htmlFor="country">Country</label>
+
+        {/* Street Address */}
+        <div className="loginReg-control">
+        <label htmlFor="streetAddress">Street Address</label>
+        <input id="streetAddress" type="text" className="loginReg-input" onChange={(e) => this.handleChange(e)}/>
         </div>
-        <div className="input-field col s6">
-          <input id="postalCode" type="text" className="validate" onChange={(e) => this.handleChange(e)}/>
-          <label htmlFor="postalCode">Postal Code</label>
+
+        {/* City */}
+        <div className="loginReg-control">
+        <label htmlFor="city">City</label>
+        <input id="city" type="text" className="loginReg-input" onChange={(e) => this.handleChange(e)}/>
         </div>
+
+        {/* Country */}
+        <div className="loginReg-control">
+        <label htmlFor="country">Country</label>
+        <input id="country" type="text" className="loginReg-input" onChange={(e) => this.handleChange(e)}/>
         </div>
-        <button className="btn waves-effect waves-light teal" type="submit" name="action">Submit</button>
-    </form>
+
+        {/* Postal Code */}
+        <div className="loginReg-control">
+        <label htmlFor="postalCode">Postal Code</label>
+        <input id="postalCode" type="text" className="loginReg-input" onChange={(e) => this.handleChange(e)}/>
+        </div>
+
+        <button className="regLog-btn" type="submit" name="action">
+          Register
+        </button>
+        </div>
+      </form>
+    </section>
+  </main>
+    //   <form className="col s12 card large" onSubmit={(e) => this.registerUser(e)}>
+    //       <h3 className="center">New user</h3>
+    // <br/>
+    // <br/>
+
+    //   <div className="row">
+    //     <div className="input-field col s6">
+    //       <input id="firstName" type="text" className="validate" onChange={(e) => this.handleChange(e)}/>
+    //       <label htmlFor="firstName">First Name</label>
+    //     </div>
+    //     <div className="input-field col s6">
+    //       <input id="lastName" type="text" className="validate" onChange={(e) => this.handleChange(e)}/>
+    //       <label htmlFor="lastName">Last Name</label>
+    //     </div>
+    //   </div>
+
+    //   <div className="row">
+    //     <div className="input-field col s12">
+    //       <input id="password" type="password" className="validate" onChange={(e) => this.handleChange(e)}/>
+    //       <label htmlFor="password">Password</label>
+    //     </div>
+    //   </div>
+    //   <div className="row">
+    //     <div className="input-field col s6">
+    //       <input id="email" type="email" className="validate" onChange={(e) => this.handleChange(e)}/>
+    //       <label htmlFor="email">Email</label>
+    //     </div>
+    //     <div className="input-field col s6">
+    //       <input id="phoneNumber" type="text" className="validate" onChange={(e) => this.handleChange(e)}/>
+    //       <label htmlFor="phoneNumber">Phone</label>
+    //     </div>
+    //   </div>
+    //   <div className="row">
+    //     <div className="input-field col s6">
+    //       <input id="streetAddress" type="text" className="validate" onChange={(e) => this.handleChange(e)}/>
+    //       <label htmlFor="streetAddress">Street Address</label>
+    //     </div>
+    //     <div className="input-field col s6">
+    //       <input id="city" type="text" className="validate" onChange={(e) => this.handleChange(e)}/>
+    //       <label htmlFor="city">City</label>
+    //     </div>
+    //     <div className="input-field col s6">
+    //       <input id="country" type="text" className="validate" onChange={(e) => this.handleChange(e)}/>
+    //       <label htmlFor="country">Country</label>
+    //     </div>
+    //     <div className="input-field col s6">
+    //       <input id="postalCode" type="text" className="validate" onChange={(e) => this.handleChange(e)}/>
+    //       <label htmlFor="postalCode">Postal Code</label>
+    //     </div>
+    //     </div>
+    //     <button className="btn waves-effect waves-light teal" type="submit" name="action">Submit</button>
+    // </form>
   );
   }
 };

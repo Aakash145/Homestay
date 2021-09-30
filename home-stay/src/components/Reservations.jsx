@@ -2,10 +2,12 @@ import React from 'react';
   
 const Reservations = () => {
   return (
-    <div>
-      <h1>This is where you see all your reservations/appointments</h1>
-    </div>
-  );
+    <div className="caption">
+      <h2>My Reservations</h2>
+      <div className="Houselist">   
+     </div>
+  </div>
+    );
 };
   
 export default Reservations;
