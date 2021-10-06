@@ -52,16 +52,19 @@ p {
 nav {
   background: hsl(360, 71%, 66%);
   box-shadow: 1px 5px 15px rgba(0, 0, 0, 0.1);
-  position: fixed;
+  position: relative;
   top: 0;
   left: 0;
   transition: all 0.7s ease-in;
   box-shadow: 4px 5px 15px rgba(0.5, 0.5, 0.5, 0.5);
+  height: 102px;
+  margin: 0 auto;
 }
 
 .logo {
-  height: 135px;
+  height: 120px;
   margin: -289%;
+  left: -39px;
   margin-top: -356px;
   border: 2px solid hsl(360, 71%, 66%);
   position: relative;
