@@ -12,10 +12,7 @@ class Registration extends React.Component {
       password: '',
       email: '',
       phoneNumber: '',
-      streetAddress: '',
-      city: '',
-      country: '',
-      postalCode: ''
+      role: ''
     }
   }
 
@@ -37,10 +34,7 @@ class Registration extends React.Component {
         email: this.state.email,
         password: this.state.password,
         phoneNumber: this.state.phoneNumber,
-        streetAddress: this.state.streetAddress,
-        city: this.state.city,
-        country: this.state.country,
-        postalCode: this.state.postalCode
+        role: this.state.role
       })
       // .then(() => {
       //   this.componentDidMount();
@@ -49,7 +43,7 @@ class Registration extends React.Component {
 
   handleChange(event){
     this.setState({
-      [event.target.id]: event.target.value
+      [event.target.name]: event.target.value
     })
   }
 
@@ -65,57 +59,46 @@ class Registration extends React.Component {
         {/* First Name */}
         <div className="loginReg-control">
         <label htmlFor="firstName">First Name</label>
-        <input id="firstName" type="text" className="loginReg-input" onChange={(e) => this.handleChange(e)}/>
+        <input name="firstName" type="text" className="loginReg-input" onChange={(e) => this.handleChange(e)}/>
         </div>
 
         {/* Last Name */}
         <div className="loginReg-control">
         <label htmlFor="lastName">Last Name</label>
-        <input id="lastName" type="text" className="loginReg-input"  onChange={(e) => this.handleChange(e)}/>
+        <input name="lastName" type="text" className="loginReg-input"  onChange={(e) => this.handleChange(e)}/>
         </div>
 
         {/* Password */}
         <div className="loginReg-control">
         <label htmlFor="password">Password</label>
-        <input id="password" type="password" className="loginReg-input" onChange={(e) => this.handleChange(e)}/>
+        <input name="password" type="password" className="loginReg-input" onChange={(e) => this.handleChange(e)}/>
         </div>
 
         {/* Email */}
         <div className="loginReg-control">
         <label htmlFor="email">Email</label>
-        <input id="email" type="email" className="loginReg-input" onChange={(e) => this.handleChange(e)}/>
+        <input name="email" type="email" className="loginReg-input" onChange={(e) => this.handleChange(e)}/>
         </div>
 
         {/* Phone */}
         <div className="loginReg-control">
         <label htmlFor="phoneNumber">Phone</label>
-        <input id="phoneNumber" type="text" className="loginReg-input" onChange={(e) => this.handleChange(e)}/>
+        <input name="phoneNumber" type="text" className="loginReg-input" onChange={(e) => this.handleChange(e)}/>
         </div>
 
-        {/* Street Address */}
         <div className="loginReg-control">
-        <label htmlFor="streetAddress">Street Address</label>
-        <input id="streetAddress" type="text" className="loginReg-input" onChange={(e) => this.handleChange(e)}/>
+        <label>Register As:</label>
+        <p>
+        <label>
+        <input name="role" type="radio" value="STUDENT" onChange={(e) => this.handleChange(e)}/>
+        <span>Student</span>
+        </label>
+        <label>
+        <input name="role" type="radio" value="OWNER" onChange={(e) => this.handleChange(e)}/>
+        <span>Owner</span>
+        </label>
+        </p>
         </div>
-
-        {/* City */}
-        <div className="loginReg-control">
-        <label htmlFor="city">City</label>
-        <input id="city" type="text" className="loginReg-input" onChange={(e) => this.handleChange(e)}/>
-        </div>
-
-        {/* Country */}
-        <div className="loginReg-control">
-        <label htmlFor="country">Country</label>
-        <input id="country" type="text" className="loginReg-input" onChange={(e) => this.handleChange(e)}/>
-        </div>
-
-        {/* Postal Code */}
-        <div className="loginReg-control">
-        <label htmlFor="postalCode">Postal Code</label>
-        <input id="postalCode" type="text" className="loginReg-input" onChange={(e) => this.handleChange(e)}/>
-        </div>
-
         <button className="regLog-btn" type="submit" name="action">
           Register
         </button>
