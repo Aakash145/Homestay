@@ -18,10 +18,7 @@ public class User {
     private String lastName;
     private String email;
     private String phoneNumber;
-    private String streetAddress;
-    private String country;
-    private String city;
-    private String postalCode;
+    private String role;
     public String username;
     public String password;
 }
