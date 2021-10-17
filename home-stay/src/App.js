@@ -10,6 +10,7 @@ import User from './components/User';
 import Reservations from './components/Reservations';
 import Login from './components/Login';
 import Registration from './components/Registration';
+import OwnerHomePage from './components/OwnerHomePage';
 
 
 function App() {
@@ -23,6 +24,7 @@ function App() {
         <Route path='/user' component={User} />
         <Route path='/login' component={Login} />
         <Route path='/registration' component={Registration} />
+        <Route path='/ownerHomePage' component={OwnerHomePage} />
       </Switch>
     </BrowserRouter>
   );
