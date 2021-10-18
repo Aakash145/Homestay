@@ -21,6 +21,8 @@ const NavBar = () => {
                                 <li><a href='/login'>Login</a></li>
                                 <li><a>||</a></li>
                                 <li><a href='/registration'>Register</a></li>
+                                <li><a>||</a></li>
+                                <li><a href='/ownerHomePage'>Owner Home Page</a></li>
                            </ul>
                        </div>  
                    </div>
