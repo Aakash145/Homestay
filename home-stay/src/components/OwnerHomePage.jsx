@@ -19,15 +19,19 @@ const OwnerHomePage = () => {
 
     const UploadMultipleFile = async () => {
 
-        axios.post("http://localhost:8080/api/units/add", {
-          username: username,
-          title: title,
-          address: address,
-          country: country,
-          city: city,
-          postalCode: postalCode,
-          images: multiFile
-        }).then((res) => {
+        let data = new FormData();
+        data.append('username', username);
+        data.append('title', title);
+        data.append('address', address);
+        data.append('city', city);
+        data.append('country', country);
+        data.append('postalCode', postalCode);
+        data.append('image', multiFile);
+
+        for (var value of data.values()) {
+            console.log(value);
+         }        
+         await axios.post("http://localhost:8080/api/units/add", data, {headers: {"Content-type": "multipart/form-data"}} ).then((res) => {
             console.log(res)
         })
 
@@ -43,7 +47,7 @@ const OwnerHomePage = () => {
             </div>
 
            <div className="loginReg-control"> 
-            <input type="file" onChange={(e) => MultipleFileChange(e)} multiple/>
+            <input type="file" onChange={(e) => MultipleFileChange(e)} />
             <button onClick={() => UploadMultipleFile()}>Upload Files</button>
            </div>
 
