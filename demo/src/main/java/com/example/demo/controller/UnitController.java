@@ -25,10 +25,10 @@ public class UnitController {
     }
 
 
-    @PostMapping("/units/add")
+    @PostMapping(value = "/units/add")
     public Unit postUnit(@RequestParam("title") String title,
                          @RequestParam("username") String username,
-                         @RequestParam("multiFile") MultipartFile image,
+                         @RequestParam("image") MultipartFile image,
                          @RequestParam("address") String address,
                          @RequestParam("city") String city,
                          @RequestParam("country") String country,
@@ -43,6 +43,6 @@ public class UnitController {
         unit.setCountry(country);
         unit.setPostalCode(postalCode);
 
-        return unitRepository.insert(unit);
+        return unitRepository.save(unit);
     }
 }

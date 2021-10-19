@@ -14,7 +14,7 @@ const OwnerHomePage = () => {
 
 
     const MultipleFileChange = (e) => {
-        setMultiFile(e.target.files)
+        setMultiFile(e.target.files[0])
     }
 
     const UploadMultipleFile = async () => {
@@ -31,8 +31,16 @@ const OwnerHomePage = () => {
         for (var value of data.values()) {
             console.log(value);
          }        
-         await axios.post("http://localhost:8080/api/units/add", data, {headers: {"Content-type": "multipart/form-data"}} ).then((res) => {
-            console.log(res)
+
+        axios({
+            method: "post",
+            url: "http://localhost:8080/api/units/add",
+            data: data,
+            headers: {  Accept: "application/json ,text/plain, */*" },
+          }).then((res) => {
+            //console.log(res)
+        }).catch((error) => {
+            console.log(error.response)
         })
 
     }
