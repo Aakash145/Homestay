@@ -1,10 +1,10 @@
 import React from 'react';
   
-const Homes = () => {
+const UserReservations = () => {
   return (
     <div className="caption">
     <section class="page-hero">
-        <h1 class="page-hero-title">--- All Listings ---</h1>
+        <h1 class="page-hero-title">--- My Reservations ---</h1>
     </section>
       <div className="Houselist">   
      </div>
@@ -12,4 +12,4 @@ const Homes = () => {
     );
 };
   
-export default Homes;
+export default UserReservations;

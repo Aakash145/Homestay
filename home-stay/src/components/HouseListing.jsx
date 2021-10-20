@@ -23,12 +23,12 @@ export const houses = [
       img: "https://images.craigslist.org/00Q0Q_iNtmvpyf8VBz_0ak07K_600x450.jpg",
     },
 
-    {
-        id: 4,
-        title: "Entire house 3 bed, 2 bath, rec, Family (4th bed) carport big yard",
-        aurthor: "Jonathan Coz",
-        address: "North Delta",
-        img: "https://images.craigslist.org/00O0O_7eOAsmdE3cCz_0ak07K_600x450.jpg",
-      },
+    // {
+    //     id: 4,
+    //     title: "Entire house 3 bed, 2 bath, rec, Family (4th bed) carport big yard",
+    //     aurthor: "Jonathan Coz",
+    //     address: "North Delta",
+    //     img: "https://images.craigslist.org/00O0O_7eOAsmdE3cCz_0ak07K_600x450.jpg",
+    //   },
   ];
   
