@@ -23,6 +23,8 @@ const NavBar = () => {
                                 <li><a href='/registration'>Register</a></li>
                                 <li><a>||</a></li>
                                 <li><a href='/ownerHomePage'>Owner Home Page</a></li>
+                                <li><a>||</a></li>
+                                <li><a href='/ownerViewUnits'>Owner View Units</a></li>
                            </ul>
                        </div>  
                    </div>

@@ -5,6 +5,7 @@ import com.example.demo.repository.UnitRepository;
 import org.bson.BsonBinarySubType;
 import org.bson.types.Binary;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.repository.query.Param;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
@@ -21,7 +22,13 @@ public class UnitController {
 
     @GetMapping("/units")
     public List<Unit> getUnits(){
+
         return unitRepository.findAll();
+    }
+
+    @GetMapping("/ownerunits")
+    public List<Unit> getUnitsByUsername(@RequestParam String username){
+        return unitRepository.findAllByUsername(username);
     }
 
 
