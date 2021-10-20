@@ -1,25 +1,30 @@
 import React from 'react';
-import { houses } from "./HouseListing";
 import { useEffect, useState } from 'react';
 import axios from 'axios';
   
-const HomePage = () => {
+  
+//axios.get(`/api/v3/product/${productId}`)
 
-  const [listing, setListing] = useState([]);
+const OwnerViewUnits = () => {
 
-  useEffect(() => {
+    const[username, setUsername] = useState('abc@gmail.com');
 
-    axios.get("http://localhost:8080/api/units")
-    .then((res) => {
-      setListing(res.data)
-      console.log(res.data)
-      console.log(listing)
-    })
-  }, []);
+    const [listing, setListing] = useState([]);
 
-  return (
+    useEffect(() => {
+  
+      axios.get("http://localhost:8080/api/ownerunits/", { params: { username: username } })
+      .then((res) => {
+        setListing(res.data)
+        console.log(res.data)
+        console.log(listing)
+      })
+    }, []);
+  
+    
+return (
   <div className="caption">
-    <h2>Featured Listings</h2>
+    <h2>Owner Listings</h2>
     <div className="Houselist">   
       {listing.map((eachListing) => {
         return (
@@ -35,5 +40,5 @@ const HomePage = () => {
 </div>
   );
 };
-  
-export default HomePage;
+
+export default OwnerViewUnits;

@@ -16,7 +16,7 @@ public class Unit {
     @Id
     private String id;
     private String title;
-    private String username;
+    public String username;
     private String address;
     private String country;
     private String city;

@@ -11,7 +11,7 @@ import Reservations from './components/Reservations';
 import Login from './components/Login';
 import Registration from './components/Registration';
 import OwnerHomePage from './components/OwnerHomePage';
-
+import OwnerViewUnits from './components/OwnerViewUnits';
 
 function App() {
   return (
@@ -25,6 +25,7 @@ function App() {
         <Route path='/login' component={Login} />
         <Route path='/registration' component={Registration} />
         <Route path='/ownerHomePage' component={OwnerHomePage} />
+        <Route path='/ownerViewUnits' component={OwnerViewUnits} />
       </Switch>
     </BrowserRouter>
   );
