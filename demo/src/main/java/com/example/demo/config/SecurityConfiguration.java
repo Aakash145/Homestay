@@ -49,7 +49,10 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http.csrf().disable()
 
-                .authorizeRequests().antMatchers("/**").permitAll()
+                .authorizeRequests().antMatchers(
+                        "/api/user",
+                                    "/api/units")
+                .permitAll()
                 .anyRequest()
                 .authenticated()
                 .and().httpBasic()
@@ -60,6 +63,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     public PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
     }
+
     @Override
     public void configure(AuthenticationManagerBuilder builder) throws Exception {
         builder.userDetailsService(userDetailsService);

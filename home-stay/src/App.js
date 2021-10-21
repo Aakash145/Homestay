@@ -22,7 +22,7 @@ import UserReservations from './components/UserReservations';
 import OwnerHomePage from './components/OwnerHomePage';
 import OwnerAdPost from './components/OwnerAdPost';
 import OwnerViewUnits from './components/OwnerViewUnits';
-
+import {PrivateRoute} from './components/PrivateRoute';
 function App() {
   return (
     <BrowserRouter>
@@ -39,7 +39,7 @@ function App() {
         <Route path='/ownerHomePage' component={OwnerHomePage} />
         <Route path='/ownerViewUnits' component={OwnerViewUnits} />
         <Route path='/ownerAdPost' component={OwnerAdPost} />
-      </Switch>
+       </Switch>
     </BrowserRouter>
   );
 }
