@@ -163,6 +163,12 @@ main {
   width: 100%;
   border-radius: 0.35rem;
 }
+.errorLogin {
+  color: hsl(360, 71%, 66%);
+  margin-top: 2rem;
+  margin-left: 2rem;
+}
+
 .container {
   width: 90vw;
   margin: 8rem 1.1rem;

@@ -8,23 +8,22 @@ const NavBar = () => {
                     <div className='nav-header'>
                         <img src={logo} className='logo' alt="HomeStay"/>
                     </div>
-                       <div className='links-container2' > 
+                        <div className='links-container2' > 
                             <ul className='links'>
                                 <li><a href='/'>Home</a></li>
                                 {/* <li><a>|</a></li> */}
                                 <li><a href='/homes'>View Units</a></li>
-                                {/* <li><a>|</a></li> */}
                                 <li><a href='/userReservations'>User Reservations</a></li>
                                 <li><a href='/userHomePage'>My Profile User</a></li>
                                 <li><a href='/ownerHomePage'>My Profile Owner</a></li>
-                                <li><a href='/ownerAdList'>Owner Posting</a></li>
+                                <li><a href='/ownerViewUnits'>Owner Postings</a></li>
                                 <li><a href='/ownerAdPost'>Post Ad</a></li>
                                 <li><a href='/login'>Login</a></li>
                                 {/* <li><a>||</a></li> */}
                                 <li><a href='/registration'>Register</a></li>
                                 <li><a href='/'>Logout</a></li>
-                           </ul>
-                       </div>  
+                                </ul>
+                   </div>
                    </div>
         </nav>
     )
