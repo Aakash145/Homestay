@@ -1,9 +1,13 @@
 import React from 'react';
 import axios from 'axios';
+import { Redirect } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 
 class Registration extends React.Component {
+
   constructor(props){
     super(props);
+//     this.history = useHistory();
     this.state = {
       users: [],
       id: 0,
@@ -28,6 +32,7 @@ class Registration extends React.Component {
 
   registerUser(event){
       event.preventDefault();
+      const { history } = this.props;
       axios.post("http://localhost:8080/api/user", {
         firstName: this.state.firstName,
         lastName: this.state.lastName,
@@ -35,10 +40,9 @@ class Registration extends React.Component {
         password: this.state.password,
         phoneNumber: this.state.phoneNumber,
         role: this.state.role
-      })
-      // .then(() => {
-      //   this.componentDidMount();
-      // })
+      });
+        history.push("/login");
+
   }
 
   handleChange(event){
