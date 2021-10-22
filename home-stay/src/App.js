@@ -31,7 +31,7 @@ function App() {
     <BrowserRouter>
       {user && user.role === "STUDENT" && <NavBarUser />}
       {user && user.role === "OWNER" && <NavBarOwner />}
-      {(!user||user.loginStatus===2) && <NavBar />}
+      {(!user||user.loginStatus=== false) && <NavBar />}
            <Switch>
         <Route path="/" exact component={HomePage} />
         <Route path="/homes" component={Homes} />
