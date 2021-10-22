@@ -1,12 +1,16 @@
 import React from 'react';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
-  
+import Loader from './Loader'
+
+
 const Homes = () => {
 
   const [listing, setListing] = useState([]);
-  
+  const [loadState, setLoadState] = useState(true);
+
   useEffect(() => {
+    setTimeout(() => setLoadState(false), 2000)
 
     axios.get("http://localhost:8080/api/units")
     .then((res) => {
@@ -15,12 +19,10 @@ const Homes = () => {
       console.log(listing)
     })
   }, []);
-  return (
-    <div className="caption">
-    <section className="page-hero">
-        <h1 className="page-hero-title">--- All Listings ---</h1>
-    </section>
-      <div className="Houselist">   
+
+  function loadListing(){
+    return(
+    <div className="Houselist">   
       {listing.map((eachListing) => {
         return (
           <article className="house">
@@ -34,6 +36,14 @@ const Homes = () => {
         );
       })}
      </div>
+    )
+  }
+  return (
+    <div className="caption">
+    <section class="page-hero">
+        <h1 class="page-hero-title">--- All Listings ---</h1>
+    </section>
+    {loadState ? <Loader /> : loadListing()}
   </div>
     );
 };

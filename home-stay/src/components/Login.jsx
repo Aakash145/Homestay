@@ -17,7 +17,7 @@ class Login extends React.Component{
     this.state={
       emailLogin:'',
       passwordLogin:'',
-      loginFlag : 0
+      loginFlag : true
     }
   }
 
@@ -45,18 +45,18 @@ class Login extends React.Component{
              }
           }
            ).then((response) => {
-            const user = new User(user_name, pass,response.data.role,1);
+            const user = new User(user_name, pass,response.data.role,true);
             localStorage.setItem('user', JSON.stringify(user));
 
           }).catch(error => {
                     console.error(error);
-                   const user = new User(null, null,null,2);
+                   const user = new User(null, null,null,false);
                     localStorage.setItem('user', JSON.stringify(user));
           });
 
           setTimeout(() => {
                let user = JSON.parse(localStorage.getItem('user'));
-                 if(user && user.loginStatus ==1){
+                 if(user && user.loginStatus){
                              if(user.role =="STUDENT"){
                                createBrowserHistory.push("/userHomePage");
                                window.location.reload();
@@ -65,9 +65,9 @@ class Login extends React.Component{
                                createBrowserHistory.push('/ownerHomePage');
                                window.location.reload();
                  }
-              }else if(user && user.loginStatus === 2){
-                this.state.loginFlag =2;
-                this.setState({loginFlag: 2});
+              }else if(user && user.loginStatus === false){
+                //this.state.loginFlag = false;
+                this.setState({loginFlag: false});
               }
 
 
@@ -104,7 +104,7 @@ class Login extends React.Component{
          <button className="regLog-btn" type="submit" name="action">
             Login
           </button>
-          { this.state.loginFlag === 2 && <h4 className="errorLogin">Your login credentials could not be verified, please try again.</h4>}
+          { this.state.loginFlag === false && <h4 className="errorLogin">Your login credentials could not be verified, please try again.</h4>}
 
           </div>
 
