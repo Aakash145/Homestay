@@ -46,8 +46,8 @@ const OwnerAdPost = () => {
 
   return (
     <div >
-    <section class="page-hero">
-        <h1 class="page-hero-title">--- Post an Ad ---</h1>
+    <section className="page-hero">
+        <h1 className="page-hero-title">--- Post an Ad ---</h1>
     </section>
 
     <div className="AdPostList">   

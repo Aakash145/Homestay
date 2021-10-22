@@ -17,8 +17,8 @@ const Homes = () => {
   }, []);
   return (
     <div className="caption">
-    <section class="page-hero">
-        <h1 class="page-hero-title">--- All Listings ---</h1>
+    <section className="page-hero">
+        <h1 className="page-hero-title">--- All Listings ---</h1>
     </section>
       <div className="Houselist">   
       {listing.map((eachListing) => {
