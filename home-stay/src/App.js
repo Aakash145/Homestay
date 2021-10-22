@@ -26,14 +26,13 @@ import Logout from "./components/Logout";
 
 function App() {
   let user = JSON.parse(localStorage.getItem("user"));
-  if (user && user.role === "STUDENT") {
-  }
+  console.log(user);
   return (
     <BrowserRouter>
       {user && user.role === "STUDENT" && <NavBarUser />}
       {user && user.role === "OWNER" && <NavBarOwner />}
-      {!user && <NavBar />}
-      <Switch>
+      {(!user||user.loginStatus=== false) && <NavBar />}
+           <Switch>
         <Route path="/" exact component={HomePage} />
         <Route path="/homes" component={Homes} />
         {/* <Route path='/reservations' component={Reservations} />
@@ -50,5 +49,7 @@ function App() {
     </BrowserRouter>
   );
 }
+
+//{!user && <NavBar />}
 
 export default App;
