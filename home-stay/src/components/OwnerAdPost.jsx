@@ -1,8 +1,15 @@
 import React from "react";
 import { useState, useRef } from "react";
 import axios from "axios";
+import Popup from "./Popup"
 
 const OwnerAdPost = () => {
+  const [isOpen, setIsOpen] = useState(false);
+
+  const togglePopup = () => {
+    setIsOpen(!isOpen);
+  }
+
   const [multiFile, setMultiFile] = useState("");
   const [title, setTitle] = useState("");
   const [address, setAddress] = useState("");
@@ -43,6 +50,7 @@ const OwnerAdPost = () => {
     })
       .then((res) => {
         //console.log(res)
+        togglePopup();
       })
       .catch((error) => {
         console.log(error.response);
@@ -96,6 +104,13 @@ const OwnerAdPost = () => {
           <button className="regLog-btn" onClick={() => UploadMultipleFile()}>
             Upload Files
           </button>
+          {isOpen && <Popup
+      content={<div>
+      <p>Listing post Successfull!</p>
+      <p>Go to Ad Postings to confirm the listing!</p>
+      </div>}
+      handleClose={togglePopup}
+    />}
         </article>
       </div>
     </div>
