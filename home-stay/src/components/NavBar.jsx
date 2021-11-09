@@ -26,6 +26,7 @@ const NavBar = () => {
             {/* <li><a>||</a></li> */}
             <li>
               <a href="/registration">Register</a>
+              <a href="/listingDetails">LD</a>
             </li>
             {/*                                 <li><a href='/'>Logout</a></li> */}
           </ul>

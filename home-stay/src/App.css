@@ -6,6 +6,7 @@ body {
   font-family: "Segoe UI", "Open Sans", "Helvetica Neue", sans-serif;
   line-height: 1.5;
   overflow-x: none;
+  
 }
 ul {
   list-style-type: none;
@@ -43,9 +44,11 @@ nav {
   box-shadow: 0.1rem 0.5rem 1.5rem rgba(0, 0, 0, 0.1);
   position: fixed;
   height: 8rem;
-  top: 0.1rem;
+  top: 0rem;
   transition: all 0.7s ease-in;
   box-shadow: 0.4rem 0.5rem 1.5rem rgba(0.5, 0.5, 0.5, 0.5);
+    /* position: absolute; */
+  z-index: 1;
 }
 
 .logo {
@@ -469,4 +472,175 @@ button:focus {
   text-align: center;
   border: 1px solid #999;
   font-size: 20px;
+}
+
+/* For Image  */
+
+.slider {
+  position: relative;
+  height: 70rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 0;
+}
+
+.image {
+  width: 90rem;
+  height: 50rem;
+  border-radius: 1rem;
+}
+
+.right-arrow {
+  position: absolute;
+  top: 35rem;
+  right: 3.2rem;
+  font-size: 3rem;
+  color: #000;
+  cursor: pointer;
+  user-select: none;
+}
+
+.left-arrow {
+  position: absolute;
+  top: 35rem;
+  left: 3.2rem;
+  font-size: 3rem;
+  color: #000;
+  cursor: pointer;
+  user-select: none;
+}
+
+.slide {
+  opacity: 0;
+  transition-duration: 1s ease;
+}
+
+.slide.active {
+  opacity: 1;
+  transition-duration: 1s;
+  transform: scale(1.08);
+}
+   
+/* For Image Gallery */
+
+/* For House details on Hosuse detail page */
+.sectionLD {
+  padding: 5rem 0;
+}
+
+.bg-greyLD {
+  background: hsl(210, 36%, 96%);
+}
+
+.section-titleLD {
+  margin-bottom: 4rem;
+  text-align: center;
+}
+
+.underlineLD {
+  width: 5rem;
+  height: 0.25rem;
+  margin-bottom: 1.25rem;
+  background:  hsl(360, 71%, 66%);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.services-centerLD {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  -webkit-column-gap: 2rem;
+  -moz-column-gap: 2rem;
+  column-gap: 2rem;
+}
+
+.section-centerLD {
+  width: 90vw;
+  margin: 0 auto;
+  max-width: 1170px;
+}
+
+.serviceLD {
+  background: #fff;
+  padding: 3rem 1.5rem;
+  margin-bottom: 2rem;
+  border-radius: 0.5rem;
+  text-align: center;
+  font-size: 2rem;
+  -webkit-transition: all 0.3s linear;
+  transition: all 0.3s linear;
+}
+
+.serviceLD:hover {
+  background-color: rgb(240, 235, 235);
+}
+
+.service-iconLD {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+}
+/* For House details on Hosuse detail page */
+
+/* Filter list UI */
+.products {
+  width: 90vw;
+  display: flex;
+  grid-gap: 2rem;
+  margin: 5rem auto;
+  /* max-width: 1120px; */
+}
+
+.filters {
+  margin-top: 4rem;
+  padding: .5rem;
+}
+
+.filters h5 {
+  font-weight: bold;
+  margin: 1.5rem 0 0.5rem;
+  font-size: 1.7rem;
+}
+
+/* filters-container */
+  .filters-container {
+    position: sticky;
+    top: 1rem;
+  }
+
+  .search-input {
+    
+    background: #e2e8f0;
+    border-radius: 0.5rem;
+    letter-spacing: 2px;
+    font-style: italic;
+  }
+
+  .filterOptn {
+    display: block;
+    margin: 0.5rem 0;
+    padding: 0.25rem;
+    text-transform: capitalize;
+    background: transparent;
+    border-color: transparent;
+    letter-spacing: 2.5px;
+    color: #000000;
+    cursor: pointer;
+    transition: 0.3s ease-in-out all;
+    font-size: 1.3rem;
+    font-style: italic;
+  }
+  .filterOptn:hover {
+    color: hsl(360, 71%, 66%);
+  }
+
+/* Filyer List UI */
+.form-input {
+  /* width: 100%; */
+  margin-left: -0.5rem;
+  padding: 0.75rem;
+  border-radius: 0.5rem ;
+  background: rgb(253, 235, 235);
+  /* background: #e2e8f0; */
+  
 }
