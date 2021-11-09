@@ -49,15 +49,16 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http.csrf().disable()
 
-                .authorizeRequests().antMatchers(
-                        "/api/user",
-                        "/api/units")
-                .permitAll()
-                .anyRequest()
-                .authenticated()
-                .and().httpBasic()
-                .and().sessionManagement().disable();
-        //.authorizeRequests().antMatchers("/**").permitAll();
+//                .authorizeRequests().antMatchers(
+//                        "/api/user",
+//                        "/api/units",
+//                        "/api/unit")
+//                .permitAll()
+//                .anyRequest()
+//                .authenticated()
+//                .and().httpBasic()
+//                .and().sessionManagement().disable();
+        .authorizeRequests().antMatchers("/**").permitAll();
     }
     @Bean
     public PasswordEncoder passwordEncoder() {
