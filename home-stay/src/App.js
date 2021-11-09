@@ -46,7 +46,7 @@ function App() {
         <Route path="/ownerViewUnits" component={OwnerViewUnits} />
         <Route path="/ownerAdPost" component={OwnerAdPost} />
         <Route path="/logout" component={Logout} />
-        <Route path="/listingDetails" component={ListingDetails} />
+        <Route path="/listingDetails/:id" component={ListingDetails} />
       </Switch>
     </BrowserRouter>
   );

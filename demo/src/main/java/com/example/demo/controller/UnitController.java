@@ -5,13 +5,12 @@ import com.example.demo.repository.UnitRepository;
 import org.bson.BsonBinarySubType;
 import org.bson.types.Binary;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.repository.query.Param;
-import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/api")
@@ -29,6 +28,11 @@ public class UnitController {
     @GetMapping("/ownerunits")
     public List<Unit> getUnitsByUsername(@RequestParam String username){
         return unitRepository.findAllByUsername(username);
+    }
+
+    @GetMapping("/unit")
+    public Optional<Unit> getUnitByID(@RequestParam String ID){
+        return unitRepository.findById(ID);
     }
 
 

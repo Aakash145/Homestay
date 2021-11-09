@@ -26,7 +26,7 @@ const Homes = () => {
         {listing.map((eachListing) => {
           return (
             <article className="house">
-              <a href="OwnerAdlist" >
+              <a href={`ListingDetails/${eachListing.id}`} >
                 <img src={`data:image/jpeg;base64,${eachListing.images.data}`} alt="House"></img>
                 <h1 >{eachListing.title}</h1>
                 <h1 >{eachListing.address}</h1>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement />
+  <nodes>
+    <node x="492.0" y="0.0">com.example.demo.model.Unit</node>
+    <node x="852.0" y="1082.0">com.example.demo.repository.UnitRepository</node>
+    <node x="0.0" y="1248.0">com.example.demo.repository.UserRepository</node>
+    <node x="0.0" y="0.0">com.example.demo.model.User</node>
+    <node x="264.0" y="739.0">com.example.demo.config.SecurityConfiguration</node>
+    <node x="0.0" y="1082.0">com.example.demo.controller.UnitController</node>
+    <node x="0.0" y="739.0">com.example.demo.dto.UserDetails</node>
+    <node x="688.0" y="739.0">com.example.demo.controller.UserController</node>
+    <node x="531.0" y="1082.0">com.example.demo.controller.LoginController</node>
+  </nodes>
+  <notes />
+  <edges />
+  <settings layout="Hierarchic Group" zoom="0.34820717131474105" x="601.5" y="607.5" />
+  <SelectedNodes>
+    <node>com.example.demo.repository.UnitRepository</node>
+  </SelectedNodes>
+  <Categories>
+    <Category>Fields</Category>
+    <Category>Constructors</Category>
+    <Category>Methods</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+

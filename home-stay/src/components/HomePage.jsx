@@ -26,7 +26,7 @@ const HomePage = () => {
       {listing.slice(0, 3).map((eachListing) => {
         return (
           <article className="house">
-            <a href="OwnerAdlist">
+            <a href={`ListingDetails/${eachListing.id}`}>
               <img
                 src={`data:image/jpeg;base64,${eachListing.images.data}`}
                 alt="House"
