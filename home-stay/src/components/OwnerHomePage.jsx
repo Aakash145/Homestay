@@ -1,6 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 import { useState, useRef } from 'react';
+import { houses } from "./HouseListing";
   
 const OwnerHomePage = () => {
     return (

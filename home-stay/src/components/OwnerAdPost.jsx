@@ -36,7 +36,9 @@ const OwnerAdPost = () => {
 
     for (var value of data.values()) {
       console.log(value);
+
     }
+    
 
     axios({
       method: "post",
@@ -55,6 +57,13 @@ const OwnerAdPost = () => {
       .catch((error) => {
         console.log(error.response);
       });
+
+      setAddress('');
+      setCity('');
+      setCountry('');
+      setPostalCode('');
+      setMultiFile('');
+
   };
 
   return (
@@ -106,8 +115,8 @@ const OwnerAdPost = () => {
           </button>
           {isOpen && <Popup
       content={<div>
-      <p>Listing post Successfull!</p>
-      <p>Go to Ad Postings to confirm the listing!</p>
+      <h3 className="errorLogin">Listing post Successfull!</h3>
+      <h3 className="errorLogin">Go to Ad Postings to confirm the listing!</h3>
       </div>}
       handleClose={togglePopup}
     />}

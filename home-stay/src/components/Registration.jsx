@@ -53,6 +53,10 @@ class Registration extends React.Component {
 
   render(){
   return (
+    <div>
+    <section class="page-hero">
+        <h1 class="page-hero-title">--- Registration ---</h1>
+    </section>
 
     <main>
     <section className="midSection midBlock">
@@ -93,23 +97,24 @@ class Registration extends React.Component {
         <div className="loginReg-control">
         <label>Register As:</label>
         <p>
-        <label>
+        <label id="rad1">
         <input name="role" type="radio" value="STUDENT" onChange={(e) => this.handleChange(e)}/>
         <span>Student</span>
         </label>
-        <label>
+        <label id="rad2">
         <input name="role" type="radio" value="OWNER" onChange={(e) => this.handleChange(e)}/>
         <span>Owner</span>
         </label>
         </p>
         </div>
-        <button className="regLog-btn" type="submit" name="action">
+        <button className="reg-btn" type="submit" name="action">
           Register
         </button>
         </div>
       </form>
     </section>
   </main>
+</div>
     //   <form className="col s12 card large" onSubmit={(e) => this.registerUser(e)}>
     //       <h3 className="center">New user</h3>
     // <br/>

@@ -79,6 +79,11 @@ class Login extends React.Component{
 
   render(){
   return (
+    <div>
+    <section class="page-hero">
+        <h1 class="page-hero-title">--- Login ---</h1>
+    </section>
+   
     <main>
       <section className="midSection midBlock">
         <form className="loginRegform" onSubmit={(e) => this.loginUser(e)}>
@@ -108,6 +113,7 @@ class Login extends React.Component{
       </section>
 
     </main>
+    </div>
 
   //   <div className="container"> 
   //   <div className="row">

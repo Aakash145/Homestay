@@ -23,6 +23,7 @@ import OwnerAdPost from "./components/OwnerAdPost";
 import OwnerViewUnits from "./components/OwnerViewUnits";
 import { PrivateRoute } from "./components/PrivateRoute";
 import Logout from "./components/Logout";
+import ListingDetails from "./components/ListingDetails";
 
 function App() {
   let user = JSON.parse(localStorage.getItem("user"));
@@ -31,8 +32,8 @@ function App() {
     <BrowserRouter>
       {user && user.role === "STUDENT" && <NavBarUser />}
       {user && user.role === "OWNER" && <NavBarOwner />}
-      {(!user||user.loginStatus=== false) && <NavBar />}
-           <Switch>
+      {(!user || user.loginStatus === false) && <NavBar />}
+      <Switch>
         <Route path="/" exact component={HomePage} />
         <Route path="/homes" component={Homes} />
         {/* <Route path='/reservations' component={Reservations} />
@@ -45,6 +46,7 @@ function App() {
         <Route path="/ownerViewUnits" component={OwnerViewUnits} />
         <Route path="/ownerAdPost" component={OwnerAdPost} />
         <Route path="/logout" component={Logout} />
+        <Route path="/listingDetails" component={ListingDetails} />
       </Switch>
     </BrowserRouter>
   );
