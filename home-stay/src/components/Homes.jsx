@@ -19,6 +19,16 @@ const Homes = () => {
         console.log(listing)
       })
   }, []);
+  
+  function handleClick(event,citySearch){
+    event.preventDefault();
+    console.log(citySearch);
+    axios.post("http://localhost:8080/api/search", {
+        city: citySearch        
+      }).then((res) => {
+        setListing(res.data)        
+      });
+  };
 
   function loadListing() {
     return (
@@ -60,10 +70,10 @@ const Homes = () => {
             <h5>City</h5>
 
             <ul>
-              <li class="filterOptn">&nbsp;&nbsp;Surrey</li>
-              <li class="filterOptn">&nbsp;&nbsp;Langley</li>
-              <li class="filterOptn">&nbsp;&nbsp;Delta</li>
-              <li class="filterOptn">&nbsp;&nbsp;Vancouver</li>
+              <li onClick={e => handleClick(e,"Surrey")} class="filterOptn">&nbsp;&nbsp;Surrey</li>
+              <li onClick={e => handleClick(e,"Langley")} class="filterOptn">&nbsp;&nbsp;Langley</li>
+              <li onClick={e => handleClick(e,"Delta")} class="filterOptn">&nbsp;&nbsp;Delta</li>
+              <li onClick={e => handleClick(e,"Vancouver")} class="filterOptn">&nbsp;&nbsp;Vancouver</li>
             </ul>
             <h5>Price Range</h5>
             <ul>
