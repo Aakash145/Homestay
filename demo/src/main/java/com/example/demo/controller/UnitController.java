@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 
@@ -39,14 +41,20 @@ public class UnitController {
     @PostMapping(value = "/units/add")
     public Unit postUnit(@RequestParam("title") String title,
                          @RequestParam("username") String username,
-                         @RequestParam("image") MultipartFile image,
+                         @RequestParam("image") MultipartFile images[],
                          @RequestParam("address") String address,
                          @RequestParam("city") String city,
                          @RequestParam("country") String country,
                          @RequestParam("postalCode") String postalCode
                            ) throws IOException {
         Unit unit = new Unit();
-        unit.setImages(new Binary(BsonBinarySubType.BINARY, image.getBytes()));
+        if(images!=null && images.length>0) {
+            unit.setImages(new ArrayList<>());
+            for(MultipartFile image : images){
+                Binary binaryImage = new Binary(BsonBinarySubType.BINARY, image.getBytes());
+                unit.getImages().add(binaryImage);
+            }
+        }
         unit.setUsername(username);
         unit.setTitle(title);
         unit.setAddress(address);

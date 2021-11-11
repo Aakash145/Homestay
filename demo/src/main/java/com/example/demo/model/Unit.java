@@ -3,9 +3,12 @@ package com.example.demo.model;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.bson.codecs.pojo.annotations.BsonProperty;
 import org.bson.types.Binary;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
+
+import java.util.List;
 
 @Document(collection = "unit")
 @Data
@@ -14,6 +17,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 public class Unit {
 
     @Id
+    @BsonProperty("id")
     private String id;
     private String title;
     public String username;
@@ -21,5 +25,5 @@ public class Unit {
     private String country;
     private String city;
     private String postalCode;
-    private Binary images;
+    private List<Binary> images;
 }
