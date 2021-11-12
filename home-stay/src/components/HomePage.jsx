@@ -28,7 +28,7 @@ const HomePage = () => {
           <article className="house">
             <a href={`ListingDetails/${eachListing.id}`}>
               <img
-                src={`data:image/jpeg;base64,${eachListing.images.data}`}
+                src={`data:image/jpeg;base64,${eachListing.images[0].data}`}
                 alt="House"
               ></img>
               <h1>{eachListing.title}</h1>

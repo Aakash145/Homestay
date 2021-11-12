@@ -10,22 +10,22 @@ const ListingDetails = (props) => {
     const [listing, setListing] = useState();
     const [current, setCurrent] = useState(0)
     const [loadState, setLoadState] = useState(true);
-    const length = 10;
     const {id} = props.match.params
+    const [noOfImages, setNoOfImages] = useState(0);
 
-    //     const nextSlide = () => {
-    //     setCurrent(current === length - 1 ? 0 : current + 1);
-    // };
+    const nextSlide = () => {
+        setCurrent(current === noOfImages - 1 ? 0 : current + 1);
+    };
 
-    // const prevSlide = () => {
-    //     setCurrent(current === 0 ? length - 1 : current - 1);
-    // };
+    const prevSlide = () => {
+        setCurrent(current === 0 ? noOfImages - 1 : current - 1);
+    };
 
     // if (!Array.isArray(listing) || listing.length <= 0) {
     //     return null;
     // }
 
-    //console.log(id)
+    console.log(noOfImages)
     useEffect(() => {
         setTimeout(() => setLoadState(false), 3000)
         var idOfUnit = id
@@ -35,31 +35,32 @@ const ListingDetails = (props) => {
           })
           .then((res) => {
             setListing(res.data);
-            //console.log(res.data);
+            setNoOfImages(res.data.images.length)
           });
       }, []);
 
       function loadListingDetails(){
+
         return (
             <div>
                 <section className="slider">
-                    {/* <FaArrowAltCircleLeft className='left-arrow' onClick={prevSlide} />
-                    <FaArrowAltCircleRight className='right-arrow' onClick={nextSlide} /> */}
-                    {/* {listing.map((house, index) => {
+                    <FaArrowAltCircleLeft className='left-arrow' onClick={prevSlide} />
+                    <FaArrowAltCircleRight className='right-arrow' onClick={nextSlide} />
+                    {listing.images.map((eachImage, index) => {
                         return (
                             <div
                                 className={index === current ? 'slide active' : 'slide'}
                                 key={index}
                             >
                                 {index === current && (
-                                    <img src={`data:image/jpeg;base64,${listing.images.data}`} alt='house image' className='image' />
+                                    <img src={`data:image/jpeg;base64,${eachImage.data}`} alt='house image' className='image' />
                                 )}
                             </div>
                         );
-                    })} */}
-                                    <div>
-                    <img src={`data:image/jpeg;base64,${listing.images.data}`} alt='house image' className='image' />
-                    </div>
+                    })}
+                    {/* <div>
+                    <img src={`data:image/jpeg;base64,${listing.images[0].data}`} alt='house image' className='image' /> 
+                    </div> */}
                 </section>
 
                 <section class="sectionLD bg-greyLD">
