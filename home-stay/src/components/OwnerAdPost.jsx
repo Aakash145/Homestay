@@ -19,7 +19,7 @@ const OwnerAdPost = () => {
   const [username, setUsername] = useState("abc@gmail.com");
 
   const MultipleFileChange = (e) => {
-    setMultiFile(e.target.files[0]);
+    setMultiFile(e.target.files);
   };
 
   const UploadMultipleFile = async () => {
@@ -32,7 +32,9 @@ const OwnerAdPost = () => {
     data.append("city", city);
     data.append("country", country);
     data.append("postalCode", postalCode);
-    data.append("image", multiFile);
+    for(let i = 0; i< multiFile.length; i++){
+      data.append("image", multiFile[i]);
+    }
 
     for (var value of data.values()) {
       console.log(value);
@@ -76,7 +78,7 @@ const OwnerAdPost = () => {
         <article className="AdPostList-article">
           <h2>Ad Info</h2>
           <label htmlFor="imageUpload">Select Images</label>
-          <input type="file" onChange={(e) => MultipleFileChange(e)} />
+          <input type="file" multiple onChange={(e) => MultipleFileChange(e)} />
 
           <label htmlFor="streetAddress">Street Address</label>
           <input

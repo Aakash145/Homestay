@@ -37,7 +37,7 @@ const Homes = () => {
           return (
             <article className="house">
               <a href={`ListingDetails/${eachListing.id}`} >
-                <img src={`data:image/jpeg;base64,${eachListing.images.data}`} alt="House"></img>
+                <img src={`data:image/jpeg;base64,${eachListing.images[0].data}`} alt="House"></img>
                 <h1 >{eachListing.title}</h1>
                 <h1 >{eachListing.address}</h1>
                 <h4>{eachListing.city}</h4>
