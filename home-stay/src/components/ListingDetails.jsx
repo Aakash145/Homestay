@@ -1,5 +1,6 @@
 import React from "react";
 import { icons } from "react-icons";
+import { Link } from 'react-router-dom'
 import { FaArrowAltCircleRight, FaArrowAltCircleLeft } from "react-icons/fa"
 import { useEffect, useState } from 'react';
 import axios from 'axios';
@@ -29,6 +30,7 @@ const ListingDetails = (props) => {
     useEffect(() => {
         setTimeout(() => setLoadState(false), 3000)
         var idOfUnit = id
+        // {console.log(idOfUnit)}
         axios
           .get("http://localhost:8080/api/unit/", {
             params: { ID: idOfUnit }
@@ -115,8 +117,12 @@ const ListingDetails = (props) => {
                             {listing.username}
                             </p>
                         </article>
-    
                     </div>
+                    <Link to="/bookAppointment"
+                        className="home-btn"
+                    >
+                        Confirm
+                    </Link>
                 </section>
                 </div>
         )

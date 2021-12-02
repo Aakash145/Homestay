@@ -26,7 +26,8 @@ const Homes = () => {
     axios.post("http://localhost:8080/api/search", {
         city: citySearch        
       }).then((res) => {
-        setListing(res.data)        
+        setListing(res.data)   
+        console.log(res.data)     
       });
   };
 
