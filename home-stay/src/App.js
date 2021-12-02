@@ -24,6 +24,7 @@ import OwnerViewUnits from "./components/OwnerViewUnits";
 import { PrivateRoute } from "./components/PrivateRoute";
 import Logout from "./components/Logout";
 import ListingDetails from "./components/ListingDetails";
+import BookAppointment from "./components/BookAppointment";
 
 function App() {
   let user = JSON.parse(localStorage.getItem("user"));
@@ -47,6 +48,7 @@ function App() {
         <Route path="/ownerAdPost" component={OwnerAdPost} />
         <Route path="/logout" component={Logout} />
         <Route path="/listingDetails/:id" component={ListingDetails} />
+        <Route path="/bookAppointment" component={BookAppointment} />
       </Switch>
     </BrowserRouter>
   );
