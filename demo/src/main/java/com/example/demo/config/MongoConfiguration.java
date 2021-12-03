@@ -1,5 +1,8 @@
 package com.example.demo.config;
 
+import com.example.demo.machinelearning.model.RecommendationData;
+import com.example.demo.model.Appointment;
+import com.example.demo.model.Unit;
 import com.mongodb.ConnectionString;
 import com.mongodb.MongoClientSettings;
 import com.mongodb.client.MongoClient;
@@ -32,8 +35,10 @@ public class MongoConfiguration {
         MongoDatabase mongoDatabase = mongoClient.getDatabase(connectionString.getDatabase());
         CodecRegistry codecRegistry = CodecRegistries.fromRegistries(
                 MongoClientSettings.getDefaultCodecRegistry(),
-                CodecRegistries.fromProviders(PojoCodecProvider.builder().
-                        conventions(Conventions.DEFAULT_CONVENTIONS).automatic(true).build()));
+                CodecRegistries.fromProviders(PojoCodecProvider.builder().register(
+                        Unit.class,
+                        RecommendationData.class)
+                        .conventions(Conventions.DEFAULT_CONVENTIONS).automatic(true).build()));
         mongoDatabase = mongoDatabase.withCodecRegistry(codecRegistry);
         return mongoDatabase;
     }

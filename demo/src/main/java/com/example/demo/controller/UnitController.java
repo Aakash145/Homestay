@@ -1,5 +1,7 @@
 package com.example.demo.controller;
 
+import com.example.demo.machinelearning.service.RecommendationDataService;
+import com.example.demo.mapper.UnitToUnitDTO;
 import com.example.demo.model.Unit;
 import com.example.demo.repository.UnitRepository;
 import org.bson.BsonBinarySubType;
@@ -21,37 +23,62 @@ public class UnitController {
     @Autowired
     UnitRepository unitRepository;
 
-    @GetMapping("/units")
-    public List<Unit> getUnits(){
+    @Autowired
+    private RecommendationDataService recommendationDataService;
 
-        return unitRepository.findAll();
+    @GetMapping("/units")
+    public List<com.example.demo.dto.Unit> getUnits(){
+        List<Unit> unitList = unitRepository.findAll();
+        List<com.example.demo.dto.Unit> unitListDTO = new ArrayList<>();
+        unitList.forEach(unit->{
+            com.example.demo.dto.Unit unitDTO = new com.example.demo.dto.Unit();
+            UnitToUnitDTO.map(unit, unitDTO);
+            unitListDTO.add(unitDTO);
+        });
+        return unitListDTO;
     }
 
     @GetMapping("/ownerunits")
-    public List<Unit> getUnitsByUsername(@RequestParam String username){
-        return unitRepository.findAllByUsername(username);
+    public List<com.example.demo.dto.Unit> getUnitsByUsername(@RequestParam String username){
+        List<Unit> unitList = unitRepository.findAllByUsername(username);
+        List<com.example.demo.dto.Unit> unitListDTO = new ArrayList<>();
+        unitList.forEach(unit->{
+            com.example.demo.dto.Unit unitDTO = new com.example.demo.dto.Unit();
+            UnitToUnitDTO.map(unit, unitDTO);
+            unitListDTO.add(unitDTO);
+        });
+        return unitListDTO;
     }
 
     @GetMapping("/unit")
-    public Optional<Unit> getUnitByID(@RequestParam String ID){
-        return unitRepository.findById(ID);
+    public com.example.demo.dto.Unit getUnitByID(@RequestParam String ID){
+        com.example.demo.dto.Unit unitDTO = null;
+        Optional<Unit> unitOptional = unitRepository.findById(ID);
+        if(unitOptional.isPresent()) {
+            Unit unit = unitOptional.get();
+            // user have searched for unit, refresh recommendation data.
+            recommendationDataService.refreshRecommendationData(unit);
+            unitDTO = new com.example.demo.dto.Unit();
+            UnitToUnitDTO.map(unit,unitDTO);
+        }
+        return unitDTO;
     }
 
 
     @PostMapping(value = "/units/add")
     public Unit postUnit(@RequestParam("title") String title,
                          @RequestParam("username") String username,
-                         @RequestParam("image") MultipartFile images[],
+                         @RequestParam("image") MultipartFile image[],
                          @RequestParam("address") String address,
                          @RequestParam("city") String city,
                          @RequestParam("country") String country,
                          @RequestParam("postalCode") String postalCode
                            ) throws IOException {
         Unit unit = new Unit();
-        if(images!=null && images.length>0) {
+        if(image!=null && image.length>0) {
             unit.setImages(new ArrayList<>());
-            for(MultipartFile image : images){
-                Binary binaryImage = new Binary(BsonBinarySubType.BINARY, image.getBytes());
+            for(MultipartFile image1 : image){
+                Binary binaryImage = new Binary(BsonBinarySubType.BINARY, image1.getBytes());
                 unit.getImages().add(binaryImage);
             }
         }
