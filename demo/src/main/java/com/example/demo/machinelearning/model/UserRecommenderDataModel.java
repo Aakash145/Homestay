@@ -123,15 +123,17 @@ public class UserRecommenderDataModel implements DataModel {
     }
 
     @Override
+    public int getNumUsersWithPreferenceFor(long... longs) throws TasteException {
+        return 0;
+    }
+
     public int getNumUsersWithPreferenceFor(long unitId) throws TasteException {
         return delegate.getNumUsersWithPreferenceFor(unitId);
     }
 
-    @Override
     public int getNumUsersWithPreferenceFor(long unitId1, long unitId2) throws TasteException {
         return delegate.getNumUsersWithPreferenceFor(unitId1, unitId2);
     }
-
 
     @Override
     public void setPreference(long userId, long unitId, float price) {
