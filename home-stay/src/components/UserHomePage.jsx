@@ -2,6 +2,7 @@ import React from 'react';
 import { useState, useRef, useEffect } from 'react';
 import Popup from "./Popup"
 import axios from 'axios';
+import createBrowserHistory from "../helpers/history";
 
 const UserHomePage = () => {
 
@@ -10,6 +11,16 @@ const UserHomePage = () => {
   const togglePopup = () => {
     setIsOpen(!isOpen);
   }
+
+  const getBackToLogin = () => {
+    localStorage.clear();
+    return(
+    <div>
+    {createBrowserHistory.push("/")} hello {window.location.reload()}
+    </div>
+    )
+}
+
   const [userName, setUserName] = useState();
   const [role, setRole] = useState();
   const [password, setPassword] = useState();
@@ -74,7 +85,7 @@ const UserHomePage = () => {
       <h3 className="errorLogin">Password updated Successfully!</h3>
       <h3 className="errorLogin">Your Password has been updated Successfully!</h3>
       </div>}
-      handleClose={togglePopup}
+      handleClose={getBackToLogin}
     />}
           </article>
         
