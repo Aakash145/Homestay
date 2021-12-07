@@ -9,4 +9,7 @@ import java.util.List;
 public interface UnitIdMappingRepository extends MongoRepository<UnitIdMapping, String> {
     @Query("{'unitIdString': ?0}")
     List<UnitIdMapping> findAllByUnitIdString(String unitIdString);
+
+    @Query("{'unitId': ?0}")
+    List<UnitIdMapping> findAllByUnitId(Long unitId);
 }
