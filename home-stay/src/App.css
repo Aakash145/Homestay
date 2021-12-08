@@ -116,6 +116,16 @@ nav {
   font-style: oblique;
 }
 
+.page-hero-title_2 {
+  margin-bottom: -3rem;
+  margin-left: 0.6rem;
+  font-weight: bold;
+  font-style: oblique;
+  color: hsl(360, 71%, 66%);
+  font-size: 3.5rem;
+}
+
+
 /* End of styling for Page Heading */
 
 /* Login and Register styling */
