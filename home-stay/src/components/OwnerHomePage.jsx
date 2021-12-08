@@ -3,7 +3,6 @@ import axios from 'axios';
 import { useState, useRef, useEffect } from 'react';
 import { houses } from "./HouseListing";
 import Popup from "./Popup"
-import { get } from 'jquery';
 import createBrowserHistory from "../helpers/history";
 
 const OwnerHomePage = () => {

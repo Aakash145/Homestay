@@ -1,5 +1,6 @@
 package com.example.demo.machinelearning.service;
 
+import com.example.demo.machinelearning.model.RecommendationModel;
 import com.example.demo.machinelearning.model.UserRecommenderDataModel;
 import com.mongodb.client.MongoDatabase;
 import org.apache.mahout.cf.taste.common.TasteException;
@@ -14,13 +15,10 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.data.mongodb.core.MongoOperations;
 import org.springframework.stereotype.Service;
 
 import java.net.UnknownHostException;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 @Service
 public class UserRecommenderService {
@@ -35,7 +33,7 @@ public class UserRecommenderService {
     @Value("${recommender.maxUserNeighborLimit}")
     private int maxUserNeighborLimit;
 
-    public Map<String, Object> recommendItem(Long userId) throws UnknownHostException, TasteException {
+    public RecommendationModel recommendItem(Long userId) throws UnknownHostException, TasteException {
         UserRecommenderDataModel dataModel = new UserRecommenderDataModel(mongoDatabase);
         UserSimilarity userSim = new LogLikelihoodSimilarity(dataModel);
         UserNeighborhood neighborhood = new NearestNUserNeighborhood(maxUserNeighborLimit, userSim, dataModel);
@@ -46,10 +44,10 @@ public class UserRecommenderService {
             LOGGER.debug("You may like movie " + recommendation.getItemID());
         }
         LOGGER.debug("neighbour ==== " + neighborhood.getUserNeighborhood(userId).length);
-        HashMap<String, Object> map = new HashMap<>();
-        map.put("Neighbour", neighborhood.getUserNeighborhood(userId));
-        map.put("recommendedItem", recommendations);
-        return map;
+        RecommendationModel model = new RecommendationModel(neighborhood.getUserNeighborhood(userId),
+                recommendations);
+
+        return model;
 
     }
 

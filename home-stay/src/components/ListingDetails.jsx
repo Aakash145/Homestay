@@ -31,9 +31,14 @@ const ListingDetails = (props) => {
         setTimeout(() => setLoadState(false), 3000)
         var idOfUnit = id
         // {console.log(idOfUnit)}
+        let user = JSON.parse(localStorage.getItem("user"));
         axios
           .get("http://localhost:8080/api/unit/", {
-            params: { ID: idOfUnit }
+            params: { ID: idOfUnit },
+            auth: {
+                username: user.userName,
+                password: user.password,
+              }
           })
           .then((res) => {
             setListing(res.data);

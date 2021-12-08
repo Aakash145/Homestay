@@ -15,29 +15,55 @@ const Homes = () => {
     setTimeout(() => setLoadState(false), 2000)
 
     let user = JSON.parse(localStorage.getItem("user"));
-    setUserName(user.userName);
+    if(user != null){
+      console.log("Username in Home" + user.userName);
+      setUserName(user.userName);
+      axios({
+        method: "get",
+        url: "http://localhost:8080/api/user/recommendation/"+ user.userName,
+        headers: { Accept: "application/json ,text/plain, */*" },
+        auth: {
+          username: user.userName,
+          password: user.password,
+        },
+      }).then((res) => {
+        setRecommendations(res.data)   
+        console.log(res.data)     
+      });
+    }
+
     axios.get("http://localhost:8080/api/units")
       .then((res) => {
         setListing(res.data)
         console.log(res.data)
         console.log(listing)
       })
-
-      axios.get("http://localhost:8080/user/recommendation/"+{userName}).then((res) => {
-        setListing(res.data)   
-        console.log(res.data)     
-      });
       
   }, []);
   
   function handleClick(event,citySearch){
     event.preventDefault();
     console.log(citySearch);
-    axios.post("http://localhost:8080/api/search", {
-        city: citySearch        
-      }).then((res) => {
+    let user = JSON.parse(localStorage.getItem("user"));
+    let data = {
+      "city": citySearch
+    }
+    axios({
+      method: "post",
+      url: "http://localhost:8080/api/search",
+      data: data,
+      auth: {
+        username: user.userName,
+        password: user.password,
+      },
+    })
+      .then((res) => {
+        //console.log(res)
         setListing(res.data)   
-        console.log(res.data)     
+
+      })
+      .catch((error) => {
+        console.log(error.response);
       });
   };
 
@@ -62,7 +88,8 @@ const Homes = () => {
 
     // Recommendations
     function loadRecommendations() {
-      if (1 == 1) {
+      if (Array. isArray(recommendations.recommendedItems) && recommendations.recommendedItems. length) {
+        
         return (
           <div>
             <div className="caption">
@@ -72,7 +99,7 @@ const Homes = () => {
               {/* </section> */}
             </div>
             <div className="Houselist">
-              {listing.map((eachListing) => {
+              {recommendations.recommendedItems.map((eachListing) => {
                 return (
                   <article className="house">
                     <a href={`ListingDetails/${eachListing.id}`} >
@@ -117,10 +144,6 @@ const Homes = () => {
         <div class="filters">
           <div class="filters-container">
 
-            <form class="form-input">
-              <input type="text" class="search-input" placeholder="search..." />
-            </form>
-
             <h5>City</h5>
 
             <ul>
@@ -128,18 +151,6 @@ const Homes = () => {
               <li onClick={e => handleClick(e,"Langley")} class="filterOptn">&nbsp;&nbsp;Langley</li>
               <li onClick={e => handleClick(e,"Delta")} class="filterOptn">&nbsp;&nbsp;Delta</li>
               <li onClick={e => handleClick(e,"Vancouver")} class="filterOptn">&nbsp;&nbsp;Vancouver</li>
-            </ul>
-            <h5>Price Range</h5>
-            <ul>
-              <li class="filterOptn">&nbsp;&nbsp;less than $500</li>
-              <li class="filterOptn">&nbsp;&nbsp;$500 - $800</li>
-              <li class="filterOptn">&nbsp;&nbsp;$800 - $1200</li>
-              <li class="filterOptn">&nbsp;&nbsp;more than $1200</li>
-            </ul>
-            <h5>Amenities</h5>
-            <ul>
-              <li class="filterOptn">&nbsp;&nbsp;Pet Friendly</li>
-              <li class="filterOptn">&nbsp;&nbsp;Car Parking</li>
             </ul>
 
           </div>

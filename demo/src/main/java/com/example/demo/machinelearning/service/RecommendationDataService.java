@@ -1,5 +1,6 @@
 package com.example.demo.machinelearning.service;
 
+import com.example.demo.common.UserThreadLocal;
 import com.example.demo.machinelearning.model.RecommendationData;
 import com.example.demo.machinelearning.model.UnitIdMapping;
 import com.example.demo.machinelearning.model.UserIdMapping;
@@ -30,10 +31,11 @@ public class RecommendationDataService {
     public void refreshRecommendationData(Unit unit) {
         //check if user already mapped.
         UserIdMapping userIdMapping = null;
-        List<UserIdMapping> listOfUser = userIdMappingRepository.findAllByUserIdString(unit.getUsername());
+
+        List<UserIdMapping> listOfUser = userIdMappingRepository.findAllByUserIdString(UserThreadLocal.getUserName());
         if (CollectionUtils.isEmpty(listOfUser)) {
             Long nextUserId = recommendationDataCustomRepository.getNextUserId();
-            userIdMapping = new UserIdMapping(nextUserId, unit.getUsername());
+            userIdMapping = new UserIdMapping(nextUserId, UserThreadLocal.getUserName());
             userIdMappingRepository.save(userIdMapping);
         } else {
             userIdMapping = listOfUser.get(0);
@@ -54,7 +56,7 @@ public class RecommendationDataService {
                 isUserUnitExists(userIdMapping.getUserId(), unitIdMapping.getUnitId());
 
         if (!userUnitExists) {
-            userIdMapping.setUserIdString(unit.getUsername());
+            userIdMapping.setUserIdString(UserThreadLocal.getUserName());
             RecommendationData recommendationData = new RecommendationData();
             recommendationData.setUserId(userIdMapping.getUserId());
             recommendationData.setUnitId(unitIdMapping.getUnitId());
